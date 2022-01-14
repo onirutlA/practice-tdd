@@ -1,4 +1,4 @@
-package com.onirutla.algorithmdatastructures;
+package com.onirutla.algorithmdatastructures.hackerrank.problemsolving.basic;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
