@@ -1,4 +1,4 @@
-package com.onirutla.algorithmdatastructures.hackerrank.problemsolving.basic;
+package com.onirutla.algorithmdatastructures;
 
 import java.util.Stack;
 
