@@ -3,7 +3,7 @@ package com.onirutla.algorithmdatastructures;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.onirutla.algorithmdatastructures.BonusCoklat.bonusCoklat;
+import static com.onirutla.algorithmdatastructures.algorithm.BonusCoklat.bonusCoklat;
 
 public class BonusCoklatTest {
 

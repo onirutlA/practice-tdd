@@ -3,7 +3,7 @@ package com.onirutla.algorithmdatastructures;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.onirutla.algorithmdatastructures.RepeatedString.repeatedString;
+import static com.onirutla.algorithmdatastructures.algorithm.RepeatedString.repeatedString;
 
 public class RepeatedStringTest {
     @Test

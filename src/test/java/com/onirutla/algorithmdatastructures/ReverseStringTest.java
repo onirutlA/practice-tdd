@@ -2,7 +2,7 @@ package com.onirutla.algorithmdatastructures;
 
 import org.junit.jupiter.api.Test;
 
-import static com.onirutla.algorithmdatastructures.ReverseString.*;
+import static com.onirutla.algorithmdatastructures.algorithm.ReverseString.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReverseStringTest {

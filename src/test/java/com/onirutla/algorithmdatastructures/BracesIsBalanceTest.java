@@ -3,7 +3,7 @@ package com.onirutla.algorithmdatastructures;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.onirutla.algorithmdatastructures.BracesIsBalance.isBalance;
+import static com.onirutla.algorithmdatastructures.algorithm.BracesIsBalance.isBalance;
 
 class BracesIsBalanceTest {
 

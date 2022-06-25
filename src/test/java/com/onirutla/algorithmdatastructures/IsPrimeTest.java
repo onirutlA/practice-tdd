@@ -3,7 +3,8 @@ package com.onirutla.algorithmdatastructures;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.onirutla.algorithmdatastructures.IsPrime.isPrime;
+
+import static com.onirutla.algorithmdatastructures.algorithm.IsPrime.isPrime;
 
 public class IsPrimeTest {
 
@@ -18,7 +19,7 @@ public class IsPrimeTest {
     }
 
     @Test
-    void givenInput4_shouldReturn_2(){
+    void givenInput4_shouldReturn_2() {
         Assertions.assertEquals(2, isPrime(4));
     }
 
@@ -73,7 +74,7 @@ public class IsPrimeTest {
     }
 
     @Test
-    void givenInput_102983_shouldReturn_1(){
+    void givenInput_102983_shouldReturn_1() {
         Assertions.assertEquals(1, isPrime(102983));
     }
 }
