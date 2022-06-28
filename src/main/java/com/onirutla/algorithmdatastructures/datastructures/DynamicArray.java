@@ -1,78 +1,120 @@
 package com.onirutla.algorithmdatastructures.datastructures;
 
-public class DynamicArray<T> {
+import java.util.Arrays;
 
-    private static final Integer INITIAL_CAPACITY = 10;
+public class DynamicArray<E> {
 
-    // For counting index that has been assigned
-    private Integer insertedItemCount = 0;
+    private static final Integer DEFAULT_CAPACITY = 16;
 
-    private Object[] array;
+    private int size;
+    private int capacity;
+    private Object[] elements;
 
     public DynamicArray() {
-        array = new Object[INITIAL_CAPACITY];
+        this(DEFAULT_CAPACITY);
     }
 
     public DynamicArray(Integer capacity) {
-        array = new Object[capacity];
+        this.size = 0;
+        this.capacity = capacity;
+        this.elements = new Object[capacity];
     }
 
-    /*Dynamic array should allow to assign item to an array
-     *
-     * */
-    // TODO implement add method
-    public void add(T t) {
-        if (array.length == insertedItemCount) {
-            Object[] tempArray = new Object[array.length * 2];
-            for (int i = 0; i < array.length; i++) {
-                tempArray[i] = array[i];
+    private int newCapacity(int capacity) {
+        this.capacity = capacity;
+        return this.capacity;
+    }
+
+    public void pushBack(E element) {
+        if (this.capacity == this.size) {
+            growSize(this.size * 2);
+        }
+
+        this.elements[this.size] = element;
+        this.size++;
+    }
+
+    private void growSize(int capacity) {
+        Object[] temp = new Object[newCapacity(capacity)];
+
+        for (int i = 0; i < this.size; i++)
+            temp[i] = this.elements[i];
+
+        this.elements = temp;
+    }
+
+    public void add(final int index, E element) {
+        if (this.size == this.capacity)
+            growSize(this.size + 1);
+
+        for (int i = this.size - 1; i >= index; i--)
+            this.elements[i + 1] = this.elements[i];
+
+        this.elements[index] = element;
+        ++this.size;
+    }
+
+    public void pop() {
+        this.elements[this.size - 1] = null;
+        this.size--;
+    }
+
+    public void removeAt(final int index) {
+        if (this.size > 0) {
+            for (int i = index; i < this.size - 1; i++) {
+                this.elements[i] = this.elements[i + 1];
             }
-            array = tempArray;
         }
-        if (insertedItemCount < array.length) {
-            array[insertedItemCount] = t;
-            insertedItemCount++;
-        }
-
+        this.elements[this.size - 1] = null;
+        --this.size;
     }
 
+    public void set(final int index, E element) {
+        this.elements[index] = element;
+    }
 
-    // TODO implement clear method
+    public E get(final int index) {
+        return (E) this.elements[index];
+    }
+
     public void clear() {
-        for (int i = 0; i < insertedItemCount; i++) {
-            array[i] = null;
+        for (int i = 0; i < this.size; i++) {
+            this.elements[i] = null;
         }
-        insertedItemCount = 0;
+        this.size = 0;
+        this.elements = new Object[DEFAULT_CAPACITY];
     }
 
-    // TODO implement get method
-    public Object get(Integer index) {
-        return array[index];
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    public int size() {
+        return this.size;
+    }
+
+    public boolean contains(E element) {
+        return indexOf(element) >= 0;
+    }
+
+    public int indexOf(E element) {
+        for (int i = 0; i < this.size; i++) {
+            if (element.equals(this.elements[i])) return i;
+        }
+        return -1;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < insertedItemCount; i++) {
-            if (i != insertedItemCount - 1) {
-                sb.append(array[i]);
+        for (int i = 0; i < this.size; i++) {
+            if (i != this.size - 1) {
+                sb.append(this.elements[i]);
                 sb.append(", ");
-            } else {
-                sb.append(array[i]);
-            }
+            } else
+                sb.append(this.elements[i]);
         }
         return sb.toString();
     }
-
-    // TODO implement isEmpty method
-    public Boolean isEmpty() {
-        return insertedItemCount == 0;
-    }
-
-    // TODO implement size method
-    public Integer size() {
-        return insertedItemCount;
-    }
-
 }
 
